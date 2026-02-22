@@ -1,7 +1,7 @@
 import streamlit as st
 import requests 
 
-api_personal="http://127.0.0.1:8000/predict_personal"
+api_personal="http://127.0.0.1:8000/predict_personal" ### these are public ip address urls
 api_clinical="http://127.0.0.1:8000/predict_clinical"
 
 
@@ -38,7 +38,7 @@ fast_food=1 if fast_food=='Yes' else 0
 regular_exercise=st.selectbox("Do you exercise regularly?",options=['Yes','No'])
 regular_exercise=1 if regular_exercise=='Yes' else 0
 pulse_rate=st.number_input("Enter Pulse rate in BPM",value=80)
-if mode == "Medical (I have lab reports)":
+if mode == "Medical (need lab reports)":
     respiratory_rate = st.number_input("Respiratory rate (breaths/min)", value=18)
 
     hemoglobin = st.number_input("Hemoglobin (g/dl)", value=12.5)
@@ -79,7 +79,7 @@ if st.button("Predict Pcos risk"):
                 'regular_exercise':regular_exercise, 
                 'pulse_rate':pulse_rate
                 }
-    if mode == "Medical (I have lab reports)":
+    if mode == "Medical (need lab reports)":
         api_url = api_clinical
         input_data.update({
             "respiratory_rate": respiratory_rate,
