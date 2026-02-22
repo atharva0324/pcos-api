@@ -1,0 +1,17 @@
+# python junk
+__pycache__/
+*.pyc
+
+# env
+myenv/
+.venv/
+env/
+
+# mac
+.DS_Store
+
+# streamlit cache
+.streamlit/
+
+# secrets (if any)
+*.env
